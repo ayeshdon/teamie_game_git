@@ -8,19 +8,23 @@
         android:layout_height="wrap_content"
         android:text="@string/congratulations"
         android:textSize="18sp"
-        android:textColor="@color/green_text"
+        android:textColor="#6A1B9A"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-light"
         android:id="@+id/congratzTextView" />
 
-    <com.romainpiel.shimmer.ShimmerTextView
+    <TextView
         android:id="@+id/highScorebTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/high_score"
         android:layout_gravity="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="50sp" />
+        android:textStyle="bold|italic"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#C62828"
+        android:textSize="30sp" />
 
     <TextView
         android:layout_width="50dp"
@@ -30,17 +34,20 @@
         android:background="@drawable/blue_circle"
         android:text="1"
         android:textSize="20sp"
+        android:fontFamily="sans-serif-light"
         android:textColor="@color/colorPrimaryDark"
         android:layout_gravity="center"
         android:id="@+id/scorebTextView" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:padding="10dp"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        android:maxLength="8"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
+        android:fontFamily="sans-serif-light"
         android:layout_marginBottom="10dp"
         android:background="@drawable/textbox_gray"
         android:id="@+id/highScoreNameEditText"
@@ -48,10 +55,11 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:text="OK"
         android:id="@+id/highSocreOkButton"
         android:textColor="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif-light"
         android:background="@drawable/button_blue_round"
         android:layout_marginBottom="20dp"
         android:layout_gravity="center_horizontal" />

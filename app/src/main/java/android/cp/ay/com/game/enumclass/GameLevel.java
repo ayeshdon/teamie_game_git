@@ -4,14 +4,16 @@ package android.cp.ay.com.game.enumclass;
  * Created by ayesh on 9/14/2015.
  */
 public enum GameLevel {
-    LEVEL_01(3,"Level 01"),LEVEL_02(4,"Level 02");
+    LEVEL_01(1,"Level 01",3),LEVEL_02(2,"Level 02",4);
 
     private int index;
     private String label;
+    private int wordCount;
 
-    private GameLevel(int index,String label){
-        this.index = index;
-        this.label = label;
+    private GameLevel(int index,String label,int wordCount){
+        this.index     = index;
+        this.wordCount = wordCount;
+        this.label     = label;
 
     }
 
@@ -21,5 +23,9 @@ public enum GameLevel {
 
     public int getIndex() {
         return index;
+    }
+
+    public int getWordCount() {
+        return wordCount;
     }
 }

@@ -25,16 +25,21 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="0dp">
+                android:padding="0dp"
+                android:background="@drawable/shadow_bg"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:layout_marginTop="10dp"
                     android:text="01"
                     android:background="@drawable/blue_circle"
                     android:gravity="center"
                     android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-light"
                     android:id="@+id/textView" />
 
                 <TextView
@@ -42,7 +47,8 @@
                     android:layout_width="match_parent"
                     android:paddingLeft="10dp"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:text="New Text" />
 
                 <LinearLayout
@@ -56,13 +62,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/your_answer"
                         android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/textView7" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="@color/green_text"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
+                        android:textColor="@color/anwser_color"
                         android:id="@+id/text01AnwserTextView" />
                 </LinearLayout>
 
@@ -73,16 +83,20 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:padding="0dp">
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shadow_bg"
+               >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="02"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/blue_circle"
                     android:gravity="center"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:layout_gravity="center"
                     android:id="@+id/textView2" />
 
@@ -91,7 +105,8 @@
                     android:layout_width="match_parent"
                     android:paddingLeft="10dp"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:text="New Text" />
 
                 <LinearLayout
@@ -105,13 +120,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/your_answer"
                         android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/textView72" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="@color/green_text"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
+                        android:textColor="@color/anwser_color"
                         android:id="@+id/text02AnwserTextView" />
                 </LinearLayout>
 
@@ -123,6 +142,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
+                android:background="@drawable/shadow_bg"
+                android:layout_marginTop="10dp"
                 android:padding="0dp">
 
                 <TextView
@@ -130,6 +151,9 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="03"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:background="@drawable/blue_circle"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -140,7 +164,8 @@
                     android:layout_width="match_parent"
                     android:paddingLeft="10dp"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:text="New Text" />
 
                 <LinearLayout
@@ -154,13 +179,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/your_answer"
                         android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/textView73" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="@color/green_text"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
+                        android:textColor="@color/anwser_color"
                         android:id="@+id/text03AnwserTextView" />
                 </LinearLayout>
 
@@ -172,6 +201,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
+                android:background="@drawable/shadow_bg"
+                android:layout_marginTop="10dp"
                 android:padding="0dp">
 
                 <TextView
@@ -179,8 +210,11 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="04"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/blue_circle"
                     android:gravity="center"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:layout_gravity="center"
                     android:id="@+id/textView4" />
 
@@ -189,7 +223,8 @@
                     android:layout_width="match_parent"
                     android:paddingLeft="10dp"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:text="New Text" />
 
                 <LinearLayout
@@ -203,13 +238,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/your_answer"
                         android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/textView74" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="@color/green_text"
+                        android:textColor="@color/anwser_color"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/text04AnwserTextView" />
                 </LinearLayout>
 
@@ -222,6 +261,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
+                android:background="@drawable/shadow_bg"
+                android:layout_marginTop="10dp"
                 android:padding="0dp">
 
                 <TextView
@@ -229,8 +270,11 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="05"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/blue_circle"
                     android:gravity="center"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:layout_gravity="center"
                     android:id="@+id/textView5" />
 
@@ -239,7 +283,8 @@
                     android:layout_width="match_parent"
                     android:paddingLeft="10dp"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:text="New Text" />
 
                 <LinearLayout
@@ -253,13 +298,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/your_answer"
                         android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/textView75" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="@color/green_text"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
+                        android:textColor="@color/anwser_color"
                         android:id="@+id/text05AnwserTextView" />
                 </LinearLayout>
 
@@ -272,6 +321,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
+                android:background="@drawable/shadow_bg"
+                android:layout_marginTop="10dp"
                 android:padding="10dp">
 
                 <TextView
@@ -279,6 +330,9 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="06"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/blue_circle"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -288,7 +342,8 @@
                     android:id="@+id/text06TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:text="New Text" />
 
                 <LinearLayout
@@ -302,13 +357,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/your_answer"
                         android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/textView76" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="@color/green_text"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
+                        android:textColor="@color/anwser_color"
                         android:id="@+id/text06AnwserTextView" />
                 </LinearLayout>
 
@@ -320,13 +379,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
+                android:background="@drawable/shadow_bg"
+                android:layout_marginTop="10dp"
                 android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:layout_marginTop="10dp"
                     android:text="07"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:background="@drawable/blue_circle"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -336,7 +400,8 @@
                     android:id="@+id/text07TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:text="New Text" />
 
                 <LinearLayout
@@ -350,13 +415,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/your_answer"
                         android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/textView77" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="@color/green_text"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
+                        android:textColor="@color/anwser_color"
                         android:id="@+id/text07AnwserTextView" />
                 </LinearLayout>
 
@@ -369,6 +438,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
+                android:background="@drawable/shadow_bg"
+                android:layout_marginTop="10dp"
                 android:padding="10dp">
 
                 <TextView
@@ -376,6 +447,9 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="08"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:background="@drawable/blue_circle"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -385,7 +459,8 @@
                     android:id="@+id/text08TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:text="New Text" />
 
                 <LinearLayout
@@ -399,13 +474,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/your_answer"
                         android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/textView78" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="@color/green_text"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
+                        android:textColor="@color/anwser_color"
                         android:id="@+id/text08AnwserTextView" />
                 </LinearLayout>
 
@@ -416,6 +495,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
+                android:background="@drawable/shadow_bg"
+                android:layout_marginTop="10dp"
                 android:padding="10dp">
 
                 <TextView
@@ -423,6 +504,9 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="09"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:background="@drawable/blue_circle"
                     android:gravity="center"
                     android:layout_gravity="center"
@@ -432,7 +516,8 @@
                     android:id="@+id/text09TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:text="New Text" />
 
                 <LinearLayout
@@ -446,13 +531,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/your_answer"
                         android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/textView779" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="@color/green_text"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
+                        android:textColor="@color/anwser_color"
                         android:id="@+id/text09AnwserTextView" />
                 </LinearLayout>
 
@@ -463,6 +552,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
+                android:background="@drawable/shadow_bg"
+                android:layout_marginTop="10dp"
                 android:padding="10dp">
 
                 <TextView
@@ -470,7 +561,10 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="10"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/blue_circle"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:id="@+id/textView1022" />
@@ -479,7 +573,8 @@
                     android:id="@+id/text10TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="18sp"
                     android:text="New Text" />
 
                 <LinearLayout
@@ -493,13 +588,17 @@
                         android:layout_height="wrap_content"
                         android:text="@string/your_answer"
                         android:textStyle="bold"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
                         android:id="@+id/textView1077" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:textColor="@color/green_text"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="18sp"
+                        android:textColor="@color/anwser_color"
                         android:id="@+id/text10AnwserTextView" />
                 </LinearLayout>
 

@@ -1,7 +1,9 @@
 package android.cp.ay.com.game.activity;
 
 import android.content.Intent;
+import android.cp.ay.com.game.MainApplication;
 import android.cp.ay.com.game.R;
+import android.cp.ay.com.game.enumclass.GameLevel;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,15 +14,18 @@ import android.widget.Toast;
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button playGameButton,highScoreButton;
+    private MainApplication application;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
 
+
+            application = (MainApplication) getApplication();
+
             setContentView(R.layout.activity_dashboard);
 
-//            CommonUI.getInstace().showAlert("Test","Message",this);
 
             UIInitialize();
 
@@ -59,6 +64,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
                 case R.id.playGameButton:
                     /*Play game button action*/
+
+                    application.GAME_LEVEL = GameLevel.LEVEL_01;
 
                     Intent callPlayGame = new Intent(this, GameInitActivity.class);
                     startActivity(callPlayGame);

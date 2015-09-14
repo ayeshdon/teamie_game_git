@@ -8,5 +8,6 @@
         android:text="New Text"
         android:padding="10dp"
         android:textSize="18sp"
+        android:fontFamily="sans-serif-light"
         android:id="@+id/answerListTextView" />
 </LinearLayout>

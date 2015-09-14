@@ -1,6 +1,9 @@
 package android.cp.ay.com.game.activity;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.cp.ay.com.game.MainApplication;
+import android.cp.ay.com.game.enumclass.GameLevel;
 import android.cp.ay.com.game.listener.WordClickListener;
 import android.cp.ay.com.game.adapter.AnswerListAdapter;
 import android.cp.ay.com.game.bean.ParagraphBean;
@@ -18,8 +21,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,6 +53,8 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
             text05AnwserTextView,text06AnwserTextView,text07AnwserTextView,text08AnwserTextView,
             text09AnwserTextView,text10AnwserTextView;
 
+    private MainApplication application;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +63,8 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
             paragraphList = new ArrayList<ParagraphBean>();
             wordList = new WordBean[10];
+
+            application = (MainApplication) getApplication();
 
             overridePendingTransition(R.anim.animation_enter,
                     R.anim.animation_leave);
@@ -87,7 +98,7 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
 
 
-            String[]sentenceHolder = Constant.PHARA_1.split("\\.");
+            String[]sentenceHolder = application.SELECTED_PARAGRAPH.split("\\.");
 
             for (int i = 0; i < 10; i++) {
 
@@ -124,7 +135,7 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
                 int wordLength = 0;
                 int wordPos = 0;
 
-                wordPos    =  getWordPos(textHolder, 4);
+                wordPos    =  getWordPos(textHolder, application.GAME_LEVEL.getWordCount());
                 wordLength =  textHolder[wordPos].length();
 
 
@@ -153,14 +164,7 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
                 StringBuilder printString = new StringBuilder();
 
-//                Log.e("TAG",  "   ");
-//                Log.e("TAG", "================================");
-//                Log.e("aswIndex", aswIndex + "");
-//                Log.e("ssbLength", ssb.length() + "");
-//                Log.e("printString", printString.length() + "");
-//                Log.e("textLength", textVal.length() + "");
-//                Log.e("TAG", "================================");
-//                Log.e("TAG",  "    ");
+
 
                 for (int j = 0; j < textHolder.length; j++) {
 
@@ -186,17 +190,6 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
                 int endPos = (firstLength + wordLength);
 
 
-//                Log.e("TAG",  "   ");
-//                Log.e("TAG", "================================");
-//                Log.e("firstLength", firstLength + "");
-//                Log.e("textLength",  textVal.length() + "");
-//                Log.e("wordLength", (firstLength + wordLength) + "");
-//                Log.e("firstLength", tt.substring(firstLength,endPos));
-//                Log.e("TAG", "================================");
-//                Log.e("TAG", "    ");
-
-
-
                 ssb.setSpan(new IndexedClickableSpan(firstLength, endPos, this, tt, this),
                         firstLength, endPos, Spanned.SPAN_POINT_MARK);
 
@@ -205,11 +198,6 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
 
             }
-
-
-
-
-
 
 
         } catch (Exception e) {
@@ -454,9 +442,10 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
         try {
 
-            final Dialog dialog = new Dialog(this);
+            final Dialog dialog = new Dialog(this,R.style.Dialog_No_Border);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.view_word_select_dialog);
-            dialog.setTitle("Select  Your Anwser");
+
 
             String test = "";
 
@@ -552,10 +541,18 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
                     int score = 0;
 
+                    if (application.GAME_LEVEL == GameLevel.LEVEL_02){
+
+                        score = score + application.GENRAL_SCORE;
+
+                    }
+
                     for (int i = 0; i < paragraphList.size(); i++) {
 
                         ParagraphBean bean = paragraphList.get(i);
                         WordBean wordBean = bean.getWordBean();
+
+
 
                         if (wordBean.getCorrectPos() == wordBean.getAnswerPos()){
 
@@ -591,10 +588,9 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
                     }
 
                     Toast.makeText(this,  "SCORE : "+score, Toast.LENGTH_SHORT).show();
-//                    showHighScoreAlert(score);
+
                     ScoresTable scoresTable = new ScoresTable(this);
                     int currentHighScore = scoresTable.getTopScore();
-
 
 
                     if (currentHighScore <= score){
@@ -619,7 +615,7 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
 
 
-    public void showResultAlert(String title, int score,boolean isHighScore) throws Exception {
+    public void showResultAlert(String title, final int score,boolean isHighScore) throws Exception {
         try {
             final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                     this);
@@ -640,19 +636,85 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
                 @Override
                 public void onClick(View view) {
+
+                    application.GAME_LEVEL = GameLevel.LEVEL_01;
+                    application.GENRAL_SCORE = 0;
+
                     alertDialog.dismiss();
+
+                    GameActivity.this.finish();
                 }
             });
+
+
+
+            Button tryAgainButton = (Button)dialogView.findViewById(R.id.tryAgainButton);
+            tryAgainButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+
+                    application.GAME_LEVEL = GameLevel.LEVEL_01;
+                    application.GENRAL_SCORE = 0;
+
+                    alertDialog.dismiss();
+
+                    Intent callTryAgain = new Intent(GameActivity.this,GameInitActivity.class);
+                    startActivity(callTryAgain);
+                    GameActivity.this.finish();
+
+
+                }
+            });
+
+
+
+
+            Button netLevelButton = (Button) dialogView.findViewById(R.id.netLevelButton);
+
+            if (application.GAME_LEVEL == GameLevel.LEVEL_02){
+
+                netLevelButton.setVisibility(View.GONE);
+                tryAgainButton.setVisibility(View.GONE);
+                resultCancelButton.setText(getResources().getString(R.string.finish));
+
+            }else{
+
+                netLevelButton.setVisibility(View.VISIBLE);
+                tryAgainButton.setVisibility(View.VISIBLE);
+                resultCancelButton.setText(getResources().getString(R.string.cancel));
+
+            }
+
+            netLevelButton.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+
+                    application.GAME_LEVEL = GameLevel.LEVEL_02;
+                    application.GENRAL_SCORE = score;
+
+                    alertDialog.dismiss();
+
+                    Intent callTryAgain = new Intent(GameActivity.this,GameInitActivity.class);
+                    startActivity(callTryAgain);
+                    GameActivity.this.finish();
+
+
+                }
+            });
+
+
 
             TextView scoreTextView = (TextView) dialogView.findViewById(R.id.scoreTextView);
             scoreTextView.setText(String.valueOf(score));
 
 
 
-//            Shimmer shimmer = new Shimmer();
-//
-            ShimmerTextView highScoreTextView = (ShimmerTextView) findViewById(R.id.highScoreTextView);
-//            shimmer.start(highScoreTextView);
+            Shimmer shimmer = new Shimmer();
+
+            ShimmerTextView highScoreTextView = (ShimmerTextView) dialogView.findViewById(R.id.highScoreTextView);
+            shimmer.start(highScoreTextView);
 
             if (isHighScore){
                 highScoreTextView.setVisibility(View.VISIBLE);
@@ -697,12 +759,15 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
                         String name = highScoreNameEditText.getText().toString();
 
                         if (name.isEmpty()) {
-                            Toast.makeText(GameActivity.this, "Please enter name", Toast.LENGTH_LONG).show();
+
+                            Toast.makeText(GameActivity.this, getResources().getString(R.string.name_empty),
+                                    Toast.LENGTH_LONG).show();
+
                         } else {
 
                             ScoreBean bean = new ScoreBean();
 
-                            bean.setLevel(1);
+                            bean.setLevel(application.GAME_LEVEL.getIndex());
                             bean.setScore(score);
                             bean.setName(name);
 
@@ -715,7 +780,6 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
 
                         }
-
 
 
                     } catch (Exception e) {
@@ -732,12 +796,13 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
             scorebTextView.setText(String.valueOf(score));
 
 
+            Animation textAni = AnimationUtils.loadAnimation(this, R.anim.text_animation);
 
 
-            Shimmer shimmer = new Shimmer();
+            TextView highScorebTextView = (TextView) findViewById(R.id.highScorebTextView);
 
-            ShimmerTextView highScorebTextView = (ShimmerTextView) findViewById(R.id.highScorebTextView);
-            shimmer.start(highScorebTextView);
+            highScorebTextView.startAnimation(textAni);
+
 
 
 

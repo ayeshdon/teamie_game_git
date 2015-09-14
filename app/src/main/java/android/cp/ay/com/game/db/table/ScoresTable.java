@@ -8,6 +8,7 @@ import android.cp.ay.com.game.db.DatabaseHelper;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -160,25 +161,26 @@ public class ScoresTable {
 
 
 			String query = "SELECT " +
-					" con."+DatabaseHelper.KEY_ID        +" AS " + DatabaseHelper.KEY_ID  +", " +
-					" con."+DatabaseHelper.NAME          +" AS " + DatabaseHelper.NAME    +", " +
-					" con."+DatabaseHelper.LEVEL         +" AS " + DatabaseHelper.LEVEL    +", " +
-					" con."+DatabaseHelper.SCORE         +" AS " + DatabaseHelper.SCORE  +" " +
-					" FROM "+DatabaseHelper.SCORE_TABLE+ " AS con ORDER BY "+DatabaseHelper.SCORE+" LIMIT 1 " ;
+					"MAX( con."+DatabaseHelper.SCORE         +" ) AS " + DatabaseHelper.SCORE  +" " +
+					" FROM "+DatabaseHelper.SCORE_TABLE+ " AS con  " ;
 
 
 			cursor = database.rawQuery(query,null);
 
 			int value = 0;
 
-			for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+			if(cursor.getCount() > 0) {
 
+				cursor.moveToFirst();
 				value = cursor.getInt(cursor.getColumnIndex(DatabaseHelper.SCORE));
 
 
 			}
 
+
 			return value;
+
+
 		} catch (Exception e) {
 			throw e;
 		}finally{

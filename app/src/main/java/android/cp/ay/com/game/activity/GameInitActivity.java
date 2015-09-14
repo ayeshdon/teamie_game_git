@@ -1,7 +1,9 @@
 package android.cp.ay.com.game.activity;
 
 import android.content.Intent;
+import android.cp.ay.com.game.MainApplication;
 import android.cp.ay.com.game.utils.Constant;
+import android.cp.ay.com.game.utils.Utils;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +18,7 @@ public class GameInitActivity extends ActionBarActivity implements View.OnClickL
 
     private TextView pharaContainerTextView;
     private Button gameStartButton;
+    private MainApplication application;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +26,16 @@ public class GameInitActivity extends ActionBarActivity implements View.OnClickL
 
         try {
 
+            application = (MainApplication) getApplication();
+
             setContentView(R.layout.activity_game_init);
+
+            int ran = Utils.getRandomNumber();
+
+            int parapos = ran % (4);
+
+            application.SELECTED_PARAGRAPH = Constant.PARA_ARRAY[parapos];
+
 
             UIInitialize();
 
@@ -39,7 +51,7 @@ public class GameInitActivity extends ActionBarActivity implements View.OnClickL
         try {
 
             pharaContainerTextView = (TextView) findViewById(R.id.pharaContainerTextView);
-            pharaContainerTextView.setText(Constant.PHARA_1);
+            pharaContainerTextView.setText(application.SELECTED_PARAGRAPH);
 
             gameStartButton = (Button)findViewById(R.id.gameStartButton);
             gameStartButton.setOnClickListener(this);

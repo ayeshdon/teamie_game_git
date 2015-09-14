@@ -6,8 +6,8 @@ package android.cp.ay.com.game.bean;
 public class WordBean {
 
     private String word;
-    private int correctPos;
-    private int answerPos;
+    private int correctPos = -1;
+    private int answerPos = -1;
 
 
     public String getWord() {
