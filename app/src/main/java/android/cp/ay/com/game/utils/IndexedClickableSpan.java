@@ -30,8 +30,5 @@ public class IndexedClickableSpan extends ClickableSpan {
 
         listener.onWordClick(word);
 
-
-
-//        Toast.makeText(context,  word, Toast.LENGTH_SHORT).show();
     }
 }

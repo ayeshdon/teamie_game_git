@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 /**
  * Created by ayesh on 9/14/15.
+ * this class use to adapt high score value to list
  */
 public class HighScoreListAdapter  extends BaseAdapter {
 

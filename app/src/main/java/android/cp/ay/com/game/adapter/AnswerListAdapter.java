@@ -1,8 +1,6 @@
 package android.cp.ay.com.game.adapter;
 
-import java.util.List;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.cp.ay.com.game.R;
@@ -11,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
+
+/**
+ * This class use to do adpt row for answers list view
+ */
 
 public class AnswerListAdapter extends BaseAdapter{
 
@@ -29,7 +30,6 @@ public class AnswerListAdapter extends BaseAdapter{
 
 	}
 
-	@SuppressLint("NewApi")
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 

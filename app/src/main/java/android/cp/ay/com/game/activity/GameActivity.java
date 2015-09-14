@@ -70,8 +70,6 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
                     R.anim.animation_leave);
 
 
-
-
             setContentView(R.layout.activity_game);
 
             UIInitialize();
@@ -90,8 +88,9 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
         }
     }
 
-    /*
-    process of paragraph text to sentences
+    /**
+     * In this method process selected paragraph to sentence
+     * @throws Exception
      */
     private void paragraphProcess()  throws Exception {
         try {
@@ -104,11 +103,10 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
                 ParagraphBean dataBean = new ParagraphBean();
                 dataBean.setText(sentenceHolder[i]);
+
                 paragraphList.add(dataBean);
             }
 
-
-//            Toast.makeText(this,"list size : "+paragraphList.size(),Toast.LENGTH_LONG).show();
 
         }catch (Exception e){
             throw  e;
@@ -116,7 +114,7 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
     }
 
     /**
-     * word process method
+     * This method use to implement word randomly remove word and replace ith with blank text
      * @throws Exception
      */
     private void wordProcessLogic() throws Exception {
@@ -150,16 +148,31 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
                 wordList[aswIndex] = wordBean;
 
+                /**
+                 * black text has  format.<Sentence Index>"@"<remove word index>"@"_________
+                 * e.g if senetence 1 replace word index is 5
+                 * then format : 1@5@ _______________
+                 */
+
                 textHolder[wordPos] = i+"@"+wordPos+"@ ______________ ";
 
                 int firstLength = 0 ;
 
+                /**
+                 * Fix word length for black text
+                 */
                 if (wordPos > 9){
+
                     wordLength = 15;
+
                 }else if(wordPos > 99){
+
                     wordLength = 16;
+
                 }else{
+
                     wordLength = 17;
+
                 }
 
                 StringBuilder printString = new StringBuilder();
@@ -418,7 +431,10 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
     @Override
     public void onWordClick(String word) {
 
+        /*  word click action here */
+
         try {
+
 
             String num[] = word.split("@");
 
@@ -438,6 +454,11 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
     }
 
+    /**
+     * show result dialog with score and etc
+     * @param pos
+     * @param wordNewPos
+     */
     private void showWordDialog(final int pos,final int wordNewPos) {
 
         try {
@@ -587,7 +608,6 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
                     }
 
-                    Toast.makeText(this,  "SCORE : "+score, Toast.LENGTH_SHORT).show();
 
                     ScoresTable scoresTable = new ScoresTable(this);
                     int currentHighScore = scoresTable.getTopScore();
@@ -672,6 +692,7 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
             Button netLevelButton = (Button) dialogView.findViewById(R.id.netLevelButton);
 
+
             if (application.GAME_LEVEL == GameLevel.LEVEL_02){
 
                 netLevelButton.setVisibility(View.GONE);
@@ -680,7 +701,15 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
 
             }else{
 
-                netLevelButton.setVisibility(View.VISIBLE);
+                if (score > 7){
+
+                    netLevelButton.setVisibility(View.VISIBLE);
+
+                }else{
+
+                    netLevelButton.setVisibility(View.GONE);
+                }
+
                 tryAgainButton.setVisibility(View.VISIBLE);
                 resultCancelButton.setText(getResources().getString(R.string.cancel));
 
@@ -729,10 +758,11 @@ public class GameActivity extends AppCompatActivity implements WordClickListener
     }
 
 
-
-
-
-
+    /**
+     * if user score hight score then show this
+     * @param score
+     * @throws Exception
+     */
     public void showHighScoreAlert(final int score) throws Exception {
         try {
             final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(

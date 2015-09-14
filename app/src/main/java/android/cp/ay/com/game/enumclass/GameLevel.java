@@ -17,6 +17,7 @@ public enum GameLevel {
 
     }
 
+
     public String getLabel() {
         return label;
     }
