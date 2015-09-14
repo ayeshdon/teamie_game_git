@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Wiki Game</string>
+
+    <string name="hello_world">Wiki Game</string>
+    <string name="action_settings">Settings</string>
+
+
+    <color name="colorPrimary">#607D8B</color>
+    <color name="colorPrimaryDark">#2196F3</color>
+    <color name="white">#FFFFFF</color>
+    <color name="textColorPrimary">#263238</color>
+    <color name="windowBackground">#42A5F5</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="colorAccent">#FF80AB</color>
+    <color name="green_text">#51bf87</color>
+
+    <string name="title_activity_dashboard">DashboardActivity</string>
+
+    <string name="exception">Something went wrong. Please try again</string>
+    <string name="no_internet">Please verify your Internet connection and try again.</string>
+    <string name="play_game">Play Game</string>
+    <string name="high_score">High Score</string>
+    <string name="info">Info</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_game_init">GameInitActivity</string>
+    <string name="start">Start</string>
+    <string name="your_answer">Your Answer :</string>
+    <string name="cancel">Cancel</string>
+    <string name="review">Review</string>
+    <string name="submit">Submit</string>
+    <string name="your_score">Your Score</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="enter_name">Enter Name</string>
+
+
+</resources>
