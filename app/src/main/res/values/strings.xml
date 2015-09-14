@@ -31,6 +31,10 @@
     <string name="your_score">Your Score</string>
     <string name="congratulations">Congratulations</string>
     <string name="enter_name">Enter Name</string>
+    <string name="title_activity_high_score">HighScoreActivity</string>
+    <string name="name">Name</string>
+    <string name="score">Score</string>
+    <string name="level">Level</string>
 
 
 </resources>

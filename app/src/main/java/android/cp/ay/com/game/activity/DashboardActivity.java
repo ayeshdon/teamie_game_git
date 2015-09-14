@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button playGameButton;
+    private Button playGameButton,highScoreButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,9 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             playGameButton = (Button) findViewById(R.id.playGameButton);
             playGameButton.setOnClickListener(this);
 
+            highScoreButton = (Button) findViewById(R.id.highScoreButton);
+            highScoreButton.setOnClickListener(this);
+
         } catch (Exception e) {
             throw e;
         }
@@ -59,6 +62,14 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
                     Intent callPlayGame = new Intent(this, GameInitActivity.class);
                     startActivity(callPlayGame);
+
+                    break;
+
+                case R.id.highScoreButton:
+                    /*High Score button action*/
+
+                    Intent callHighScore = new Intent(this, HighScoreActivity.class);
+                    startActivity(callHighScore);
 
                     break;
 

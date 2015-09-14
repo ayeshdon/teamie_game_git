@@ -112,16 +112,19 @@ public class ScoresTable {
 					" con."+DatabaseHelper.NAME          +" AS " + DatabaseHelper.NAME    +", " +
 					" con."+DatabaseHelper.LEVEL         +" AS " + DatabaseHelper.LEVEL    +", " +
 					" con."+DatabaseHelper.SCORE         +" AS " + DatabaseHelper.SCORE  +" " +
-					" FROM "+DatabaseHelper.SCORE_TABLE+ " AS con LIMIT 5 ORDER BY "+DatabaseHelper.SCORE ;
+					" FROM "+DatabaseHelper.SCORE_TABLE+ " AS con ORDER BY "+DatabaseHelper.SCORE+" DESC LIMIT 5 " ;
 
 
 			cursor = database.rawQuery(query,null);
 
+             int rank = 1;
 
 			for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 
 				ScoreBean dataBean = new ScoreBean();
 
+				dataBean.setRank(rank);
+				rank++;
 				dataBean.setName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.NAME)));
 				dataBean.setLevel(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.LEVEL)));
 				dataBean.setScore(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.SCORE)));

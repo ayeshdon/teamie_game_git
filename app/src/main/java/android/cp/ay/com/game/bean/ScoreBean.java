@@ -7,6 +7,7 @@ public class ScoreBean{
 
     private int score;
     private int level;
+    private int rank;
     private String name;
 
 
@@ -32,5 +33,13 @@ public class ScoreBean{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
     }
 }
